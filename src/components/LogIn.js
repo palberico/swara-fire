@@ -53,13 +53,14 @@ class LogIn extends Component {
             <Image src={ Logo } style={styles.logo} />
             <br/>
             <br/>
-            <text style={styles.text}>Live. Local. Music.</text>
-
+            <text style={styles.text}>live. local. music.</text>
+            <br/>
+            <br/>
             {this.state.user ?
               <button onClick={this.logout}>Log Out</button> 
               :
-              <Button color='google plus' onClick={this.login}>
-                <Icon name='google plus'/>Google</Button>                            
+              <Button center style={styles.google} onClick={this.login}>
+                <Icon center name='google'/>Google</Button>                         
             }
 
           </Card>
@@ -80,23 +81,31 @@ const styles = {
   card: {
     height: 500,
     width: 800,
-    // border: 25,
-    // borderColor: 'rgba(23, 82, 170)',
-    backgroundColor: 'rgba(6, 0, 55, 0.82)',
+    backgroundColor: 'rgba(14, 15, 40, 0.80)',
+    borderRadius: 10,
+    boxShadow: 'none',
+    marginLeft: 0
   },
   container: {
-    marginTop: 160
+    marginTop: 150
   },
   logo: {
     height: 150,
-    width: 150,
+    width: 250,
     marginTop: 40,
-    marginLeft: 325
+    marginLeft: 250
   },
   text: {
     color: 'white',
-    fontSize: 90,
-    marginLeft: 20,
+    fontSize: 80,
+    marginLeft: 100,
+  },
+  google: {
+    fontSize: 24,
+    color: 'white',
+    height: 42,
+    width: 210,
+    backgroundColor: 'rgba(220, 78, 65)',
   },
 }
 
