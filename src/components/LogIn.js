@@ -26,6 +26,7 @@ class LogIn extends Component {
     });
   }
     login() {
+      debugger
       auth.signInWithPopup(provider) 
         .then((result) => {
           const user = result.user;
@@ -47,66 +48,83 @@ class LogIn extends Component {
 
   render() {
     return (
-      <Container style={styles.bg}>
-        <Container style={styles.container}>
-          <Card style={styles.card}>
-            <Image src={ Logo } style={styles.logo} />
-            <br/>
-            <br/>
-            <text style={styles.text}>live. local. music.</text>
-            <br/>
-            <br/>
-            {this.state.user ?
-              <button onClick={this.logout}>Log Out</button> 
-              :
-              <Button center style={styles.google} onClick={this.login}>
-                <Icon center name='google'/>Google</Button>                         
-            }
-
-          </Card>
-        </Container>
-      </Container>
+      <div style={styles.app}>
+        <div style={styles.card}>
+          <div style={styles.logoContainer}>
+            <div style={styles.logo} />
+          </div>
+          <div style={styles.catchPhrase}>
+            live. local. music.
+          </div>
+          <div style={styles.buttonContainer}>
+            <div style={styles.googleBtn} onClick={this.login}>
+              Google
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 const styles = {
-  bg: {
-    position: 'absolute',
+  app: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: '100%',
-    width: '100%',
     backgroundImage: `url(${Stage})`,
     backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   },
+
   card: {
-    height: 500,
-    width: 800,
+    position: 'absolute',
+    left: '25px',
+    height: '500px',
+    width: '800px',
     backgroundColor: 'rgba(14, 15, 40, 0.80)',
-    borderRadius: 10,
-    boxShadow: 'none',
-    marginLeft: 0
   },
-  container: {
-    marginTop: 150
+
+  logoContainer: {
+    marginTop: '25px',
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
   },
+
   logo: {
-    height: 150,
-    width: 250,
-    marginTop: 40,
-    marginLeft: 250
+    height: '150px',
+    width: '150px',    
+    backgroundImage: `url(${Logo})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
   },
-  text: {
+
+  catchPhrase: {
+    marginTop: '25px',
+    textAlign: 'center',
+    fontSize: '34px',
     color: 'white',
-    fontSize: 80,
-    marginLeft: 100,
   },
-  google: {
-    fontSize: 24,
-    color: 'white',
-    height: 42,
-    width: 210,
+
+  buttonContainer: {
+    position: 'relative',
+    top: '150px',
+    display: 'flex',
+    justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: '30px',
+  },
+
+  googleBtn: {
     backgroundColor: 'rgba(220, 78, 65)',
-  },
+    color: 'white',
+    width: '145px',
+    height: '50px',
+    lineHeight: '45px',
+    cursor: 'pointer',
+  }
 }
 
 export default LogIn;
