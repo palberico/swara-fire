@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Card, Image, Button, Icon } from 'semantic-ui-react';
 import Stage from '../images/stage.jpg';
 import Logo from '../images/logo.svg';
+import Forward from '../images/forward.png';
 import firebase, { auth, provider } from '../firebase.js';
 // import { Link } from 'react-router-dom';
 
@@ -49,6 +50,7 @@ class LogIn extends Component {
   render() {
     return (
       <div style={styles.app}>
+        <div style={styles.forward} />
         <div style={styles.card}>
           <div style={styles.logoContainer}>
             <div style={styles.logo} />
@@ -58,7 +60,10 @@ class LogIn extends Component {
           </div>
           <div style={styles.buttonContainer}>
             <div style={styles.googleBtn} onClick={this.login}>
-              Google
+              {/* <Icon name='google'> */}
+                Google
+              {/* </Icon> */}
+          
             </div>
           </div>
         </div>
@@ -78,12 +83,29 @@ const styles = {
     backgroundRepeat: 'no-repeat',
   },
 
+  forward: {
+    height: '50px',
+    width: '50px',  
+    marginLeft: '420px', 
+    marginTop: '80px', 
+    backgroundImage: `url(${Forward})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    animation: 'pulse 3s infinite'
+  },
+
   card: {
     position: 'absolute',
-    left: '25px',
+    left: '0px',
+    marginTop: '50px',
     height: '500px',
     width: '800px',
     backgroundColor: 'rgba(14, 15, 40, 0.80)',
+    borderStyle: 'solid',
+    borderImage: 'linear-gradient(90deg, #0E0F28, #217AD8)',
+    borderImageSlice: '1',
+    borderWidth: '1px'
+  
   },
 
   logoContainer: {
@@ -102,15 +124,15 @@ const styles = {
   },
 
   catchPhrase: {
-    marginTop: '25px',
+    marginTop: '50px',
     textAlign: 'center',
-    fontSize: '34px',
+    fontSize: '80px',
     color: 'white',
   },
 
   buttonContainer: {
     position: 'relative',
-    top: '150px',
+    top: '100px',
     display: 'flex',
     justifyContent: 'center',
     textAlign: 'center',
