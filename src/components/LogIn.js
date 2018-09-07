@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Container, Card, Image, Button, Icon } from 'semantic-ui-react';
 import Stage from '../images/stage.jpg';
 import Logo from '../images/logo.svg';
-import Forward from '../images/forward.png';
+import Forward from '../images/forward.svg';
 import firebase, { auth, provider } from '../firebase.js';
-// import { Link } from 'react-router-dom';
 
 class LogIn extends Component {
   constructor() {
@@ -27,7 +26,6 @@ class LogIn extends Component {
     });
   }
     login() {
-      debugger
       auth.signInWithPopup(provider) 
         .then((result) => {
           const user = result.user;
@@ -60,10 +58,7 @@ class LogIn extends Component {
           </div>
           <div style={styles.buttonContainer}>
             <div style={styles.googleBtn} onClick={this.login}>
-              {/* <Icon name='google'> */}
-                Google
-              {/* </Icon> */}
-          
+              Google
             </div>
           </div>
         </div>
