@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="46px" height="27px" viewBox="0 0 46 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Back/Forward</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-6.2%" y="-3.1%" width="112.5%" height="112.5%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-31.000000, -149.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+            <g id="Back/Forward" filter="url(#filter-1)" transform="translate(53.627417, 151.500000) scale(-1, 1) rotate(315.000000) translate(-53.627417, -151.500000) translate(37.627417, 135.500000)">
+                <path d="M0.5,31.254834 L4.35220993,31.254834 L29.754834,31.254834 C30.5832611,31.254834 31.254834,30.5832611 31.254834,29.754834 L31.254834,29.0504141 C31.254834,28.221987 30.5832611,27.5504141 29.754834,27.5504141 L4.20441985,27.5504141 L4.20441985,2 C4.20441985,1.17157288 3.53284698,0.5 2.70441985,0.5 L2,0.5 C1.17157288,0.5 0.5,1.17157288 0.5,2 L0.5,31.254834 Z" id="Combined-Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
