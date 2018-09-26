@@ -1,6 +1,5 @@
 import firebase from 'firebase';
 
-
 var config = {
     apiKey: "AIzaSyDAvp0ijO_VBPCinyw53hjdszJ7dSLe7bU",
     authDomain: "swara-fire.firebaseapp.com",
