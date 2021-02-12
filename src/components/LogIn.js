@@ -1,112 +1,93 @@
 import React, { Component } from 'react';
-import { Container, Card, Image, Button, Icon } from 'semantic-ui-react';
 import Stage from '../images/stage.jpg';
 import Logo from '../images/logo.svg';
-import firebase, { auth, provider } from '../firebase.js';
-// import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
+import Register from './Register';
+
 
 class LogIn extends Component {
-  constructor() {
-    super();
-    this.state = {
-      user: null
-    }
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this); 
-  }
-
-  handleChange(e) {
-  }
-    logout() {
-      auth.signOut()
-        .then(() => {
-        this.setState({
-        user: null
-      });
-    });
-  }
-    login() {
-      auth.signInWithPopup(provider) 
-        .then((result) => {
-          const user = result.user;
-          this.setState({
-            user
-        });
-      });
-  }
-
-  componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ user });
-      } 
-    });
-  } 
-
-
 
   render() {
     return (
-      <Container style={styles.bg}>
-        <Container style={styles.container}>
-          <Card style={styles.card}>
-            <Image src={ Logo } style={styles.logo} />
-            <br/>
-            <br/>
-            <text style={styles.text}>live. local. music.</text>
-            <br/>
-            <br/>
-            {this.state.user ?
-              <button onClick={this.logout}>Log Out</button> 
-              :
-              <Button center style={styles.google} onClick={this.login}>
-                <Icon center name='google'/>Google</Button>                         
-            }
-
-          </Card>
-        </Container>
-      </Container>
+      <div style={styles.app}>
+        <div style={styles.card}>
+          <div style={styles.logoContainer}>
+            <div style={styles.logo} />
+          </div>
+          <div style={styles.catchPhrase}>
+            live. local. music.
+          </div>
+          <Register />
+          <Navigation />
+          </div> 
+      </div>
     );
   }
 }
 
 const styles = {
-  bg: {
-    position: 'absolute',
+  app: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: '100%',
-    width: '100%',
     backgroundImage: `url(${Stage})`,
     backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   },
+
   card: {
-    height: 500,
-    width: 800,
-    backgroundColor: 'rgba(14, 15, 40, 0.80)',
-    borderRadius: 10,
-    boxShadow: 'none',
-    marginLeft: 0
+    position: 'absolute',
+    left: '0px',
+    top: '0px',
+    height: '100%',
+    width: '100%',
+    backgroundImage: 'linear-gradient(to top right, rgba(172, 29, 132, 0.9), rgba(97, 18, 106, 0.5), rgba(73, 15, 121, 0.5), rgba(28, 31, 50, 0.9))',
+    backgroundSize: 'cover',
   },
-  container: {
-    marginTop: 150
+  
+  logoContainer: {
+    marginTop: '125px',
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
   },
+  
   logo: {
-    height: 150,
-    width: 250,
-    marginTop: 40,
-    marginLeft: 250
+    height: '150px',
+    width: '150px',    
+    backgroundImage: `url(${Logo})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'contain',
+    display: 'flex',
+    justifyContent: 'center',
   },
-  text: {
+  
+  catchPhrase: {
+    marginTop: '50px',
+    textAlign: 'center',
+    fontSize: '80px',
     color: 'white',
-    fontSize: 80,
-    marginLeft: 100,
   },
-  google: {
-    fontSize: 24,
-    color: 'white',
-    height: 42,
-    width: 210,
-    backgroundColor: 'rgba(220, 78, 65)',
-  },
+  
+  // buttonContainer: {
+  //   width: '100%',
+  //   position: 'relative',
+  //   top: '100px',
+  //   display: 'flex',
+  //   justifyContent: 'center',
+  //   textAlign: 'center',
+  //   fontSize: '30px',
+  // },
+  
+  // googleBtn: {
+  //   backgroundColor: 'rgba(220, 78, 65)',
+  //   color: 'white',
+  //   width: '145px',
+  //   height: '50px',
+  //   lineHeight: '45px',
+  //   cursor: 'pointer',
+  // },
 }
 
 export default LogIn;
